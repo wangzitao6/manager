@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wzt.demo.example.dao.UserMapper" >
+    <resultMap id="BaseResultMap" type="com.wzt.demo.example.entity.User" >
+        <id column="user_id" property="id" jdbcType="INTEGER" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="user_age" property="userAge" jdbcType="INTEGER" />
+        <result column="user_address" property="userAddress" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        user_id, user_name, user_age, user_address
+    </sql>
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select
+        <include refid="Base_Column_List" />
+        from t_user
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
+    <!-- 这个方法是我自己加的 -->
+    <select id="selectAllUser" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from t_user
+    </select>
+    <delete id="deleteById" parameterType="java.lang.Integer" >
+        delete from t_user
+        where user_id = #{userId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.wzt.demo.example.entity.User" >
+        insert into t_user ( user_name, user_age,
+        user_address)
+        values (#{userName,jdbcType=VARCHAR}, #{userAge,jdbcType=INTEGER},
+        #{userAddress,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updateById" parameterType="com.wzt.demo.example.entity.User" >
+        update t_user
+        set user_name = #{userName,jdbcType=VARCHAR},
+        user_age = #{userAge,jdbcType=INTEGER},
+        user_address = #{userAddress,jdbcType=VARCHAR}
+        where user_id = #{userId,jdbcType=INTEGER}
+    </update>
+</mapper>
