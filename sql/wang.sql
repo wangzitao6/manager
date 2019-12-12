@@ -40,6 +40,7 @@ INSERT INTO `t_student` VALUES (1, '测试', 11, 'xx小学');
 DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE `t_user`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NULL DEFAULT NULL,
   `user_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `user_age` int(11) NULL DEFAULT NULL,
   `user_address` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
