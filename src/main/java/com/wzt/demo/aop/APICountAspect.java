@@ -24,11 +24,11 @@ import java.util.Arrays;
 public class APICountAspect {
     private final static Log LOGGER = LogFactory.getLog(APICountAspect.class);
 
-    @Pointcut("execution (* com.wzt.demo.ctrl..*(..))")
+    @Pointcut("execution (* com.wzt.demo.*.ctrl..*(..))")
     public void controllerAspect() {
     }
 
-    @Pointcut("execution (* com.wzt.*.service..*(..)) || execution (* com.wzt.*.mapper..*(..))")
+    @Pointcut("execution (* com.wzt.demo.*.service..*(..)) || execution (* com.wzt.demo.*.mapper..*(..))")
     public void methodAspect() {
     }
 

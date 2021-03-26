@@ -27,10 +27,10 @@ public class OSSApi {
 
     private static final Logger LOG = LoggerFactory.getLogger(OSSApi.class);
 
-    @Value("${oss.accessKeyId}")
-    private String accessKeyId;
-    @Value("${oss.accessKeySecret}")
-    private String accessKeySecret;
+//    @Value("${oss.accessKeyId}")
+    private String accessKeyId ="LTAI5tLwMQ1L59PcJSGydbNj";
+//    @Value("${oss.accessKeySecret}")
+    private String accessKeySecret = "MPoio9EXnmbBfvpnk1sBzcshshUF2k";
 
     /**
      * 本地上传文件
@@ -44,6 +44,32 @@ public class OSSApi {
         try {
             // 上传文件。
             ossClient.putObject(OSSConstants.BucketName.WANG_DEMO, ossPath + ossname, new File(localPath));
+        } catch (Exception e) {
+            throw new OSSApiException("上传文件出现异常: \n" + e.getMessage());
+        } finally {
+            // 关闭Client。
+            ossClient.shutdown();
+        }
+
+    }
+
+    /**
+     * 根据字符转上传文件
+     *
+     * @param json json字符串
+     */
+    public void PostObjectByString(String ossPath, String ossname, String json) {
+        OSSClient ossClient = new OSSClient(OSSConstants.EndPoint.HUADONG_ONE, accessKeyId, accessKeySecret);
+        try {
+            // 创建PutObjectRequest对象。
+            // 填写Bucket名称和Object完整路径。Object完整路径中不能包含Bucket名称。
+            PutObjectRequest putObjectRequest = new PutObjectRequest(OSSConstants.BucketName.WANG_DEMO,
+                    ossPath + ossname, new ByteArrayInputStream(json.getBytes()));
+
+            // 上传字符串。
+            ossClient.putObject(putObjectRequest);
+
+
         } catch (Exception e) {
             throw new OSSApiException("上传文件出现异常: \n" + e.getMessage());
         } finally {

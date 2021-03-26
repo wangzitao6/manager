@@ -1,19 +1,22 @@
 package com.wzt.demo.thirdpart.test;
 
+import cn.hutool.core.io.FileUtil;
 import com.wzt.demo.bean.ReqParamBody;
 import com.wzt.demo.bean.WebResult;
 import com.wzt.demo.thirdpart.oss.OSSApi;
 import com.wzt.demo.thirdpart.oss.dto.OSSObjectSummaryDTO;
 import com.wzt.demo.thirdpart.oss.vo.OSSDownloadObjectVO;
 import com.wzt.demo.thirdpart.oss.vo.OSSUploadLocalPathVO;
+import com.wzt.demo.thirdpart.oss.vo.OSSUploadStringVO;
 import com.wzt.demo.thirdpart.oss.vo.OSSUploadURLVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
-import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 /**
@@ -53,7 +56,6 @@ public class OSSController {
     /**
      * 上传文件
      *
-     * @throws IOException
      * @author wangzitao
      * @date 2018/4/3 15:22
      */
@@ -92,9 +94,19 @@ public class OSSController {
     @PostMapping(value = "/getUrl")
     public WebResult getUrl(@RequestParam("ossObjectPath") String ossObjectPath) {
         URL url = ossApi.getURL(ossObjectPath);
-
         return WebResult.ok(url);
     }
 
-
+    /**
+     * 保存文件到本地
+     *
+     * @throws Exception
+     */
+    @ResponseBody
+    @PostMapping(value = "/saveJson")
+    public WebResult writeOcrStrtoFile(@Valid @RequestBody ReqParamBody<OSSUploadStringVO> paramBody){
+        OSSUploadStringVO vo = paramBody.getData();
+        ossApi.PostObjectByString(vo.getOssPath(), vo.getOssname(), vo.getJson());
+        return WebResult.ok();
+    }
 }

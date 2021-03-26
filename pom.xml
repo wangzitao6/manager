@@ -164,6 +164,12 @@
 			<artifactId>spring-session-data-redis</artifactId>
 		</dependency>
 
+		<!--mongoDB -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+
 		<!--swagger2-->
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -197,8 +203,8 @@
 				<jdbc.url>jdbc:mysql://118.31.19.60:10066/wang?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;serverTimezone=GMT%2b8&amp;useSSL=false</jdbc.url>
 				<jdbc.user>root</jdbc.user>
 				<jdbc.pass>123456</jdbc.pass>
-				<accessKeyId>LTAIpaRMsLmFdwFb</accessKeyId>
-				<accessKeySecret>v8KAkUOVPoGPuWaoWLsKHog2tEXGW4</accessKeySecret>
+				<accessKeyId>LTAI5tLwMQ1L59PcJSGydbNj</accessKeyId>
+				<accessKeySecret>MPoio9EXnmbBfvpnk1sBzcshshUF2k</accessKeySecret>
 		</properties>
 		</profile>
 
@@ -211,8 +217,5 @@
 			</properties>
 		</profile>
 	</profiles>
-
-
-
 
 </project>

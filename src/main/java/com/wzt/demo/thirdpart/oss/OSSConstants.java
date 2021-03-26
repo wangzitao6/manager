@@ -29,7 +29,7 @@ public interface OSSConstants {
         /**
          * 华东1
          */
-        String WANG_DEMO = "wang-example";
+        String WANG_DEMO = "wang-demo";
 
     }
 

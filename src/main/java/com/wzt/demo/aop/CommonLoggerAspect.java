@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author longer
+ *
  * @author wangzitao
  * @create 2018-05-16 17:11
  */
@@ -43,11 +43,11 @@ public class CommonLoggerAspect {
      * 第二个"*", 表明为所有类下的所有方法
      * (..)括号标示参数，".."任意入参的方法
      */
-    @Pointcut("execution (* com.wzt.demo.ctrl..*(..))")
+    @Pointcut("execution (* com.wzt.demo.*.ctrl..*(..))")
     public void controllerAspect() {
     }
 
-    @Pointcut("execution (* com.wzt.*.service..*(..)) || execution (* com.wzt.*.mapper..*(..))")
+    @Pointcut("execution (* com.wzt.demo.*.service..*(..)) || execution (* com.wzt.demo.*.mapper..*(..))")
     public void methodAspect() {
     }
 
