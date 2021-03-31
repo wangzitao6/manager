@@ -27,10 +27,10 @@ public class OSSApi {
 
     private static final Logger LOG = LoggerFactory.getLogger(OSSApi.class);
 
-//    @Value("${oss.accessKeyId}")
-    private String accessKeyId ="LTAI5tLwMQ1L59PcJSGydbNj";
-//    @Value("${oss.accessKeySecret}")
-    private String accessKeySecret = "MPoio9EXnmbBfvpnk1sBzcshshUF2k";
+    @Value("${oss.accessKeyId}")
+    private String accessKeyId ;
+    @Value("${oss.accessKeySecret}")
+    private String accessKeySecret ;
 
     /**
      * 本地上传文件
