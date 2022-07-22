@@ -1,18 +1,6 @@
-/*
- Navicat Premium Data Transfer
 
- Source Server         : aliyun
- Source Server Type    : MySQL
- Source Server Version : 50562
- Source Host           : 118.31.19.60:10066
- Source Schema         : wang
-
- Target Server Type    : MySQL
- Target Server Version : 50562
- File Encoding         : 65001
-
- Date: 14/11/2019 16:00:56
-*/
+create schema wang collate utf8mb4_general_ci;
+use wang;
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;

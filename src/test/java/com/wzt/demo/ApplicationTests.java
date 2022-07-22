@@ -32,7 +32,7 @@ public class ApplicationTests {
         Student student=new Student();
         String name ="姓名";
         String school ="学校";
-        for (int i=0;i<50000;i++){
+        for (int i=0;i<5;i++){
             student.setAge(i);
             student.setName(name+i);
             student.setSchool(school+i);

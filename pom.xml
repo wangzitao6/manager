@@ -182,19 +182,6 @@
 			<version>2.2.2</version>
 		</dependency>
 
-		<!--meta_schema-->
-		<dependency>
-			<groupId>com.midea.iot</groupId>
-			<artifactId>gemini-metadata</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.midea.iot.march.commons</groupId>
-			<artifactId>march-commons-baselibs</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
-		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -215,7 +202,7 @@
 			<properties>
 				<jdbc.url>jdbc:mysql://49.234.74.228:13306/wang?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;serverTimezone=GMT%2b8&amp;useSSL=false</jdbc.url>
 				<jdbc.user>root</jdbc.user>
-				<jdbc.pass>123456</jdbc.pass>
+				<jdbc.pass>root</jdbc.pass>
 				<accessKeyId>LTAI5tLwMQ1L59PcJSGydbNj</accessKeyId>
 				<accessKeySecret>MPoio9EXnmbBfvpnk1sBzcshshUF2k</accessKeySecret>
 		</properties>
@@ -226,7 +213,7 @@
 			<properties>
 				<jdbc.url>jdbc:mysql://49.234.74.228:13306/wang?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;serverTimezone=GMT%2b8&amp;useSSL=false</jdbc.url>
 				<jdbc.user>root</jdbc.user>
-				<jdbc.pass>123456</jdbc.pass>
+				<jdbc.pass>root</jdbc.pass>
 			</properties>
 		</profile>
 	</profiles>

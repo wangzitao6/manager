@@ -2,9 +2,6 @@ package com.wzt.demo.thirdpart.test;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import cn.hutool.json.JSONUtil;
-import com.midea.iot.gemini.metadata.constants.ApiConstants;
-import com.midea.iot.gemini.metadata.schema.vo.WotMetaSchemaIdVO;
-import com.midea.iot.march.commons.baselibs.utils.JsonUtils;
 import com.wzt.demo.bean.ReqParamBody;
 import com.wzt.demo.bean.Resp;
 import com.wzt.demo.bean.WebResult;
@@ -120,40 +117,5 @@ public class OSSController {
         OSSUploadStringVO vo = paramBody.getData();
         ossApi.PostObjectByString(vo.getOssPath(), vo.getOssname(), vo.getJson());
         return WebResult.ok();
-    }
-
-    /**
-     * 保存文件到本地
-     *
-     * @throws Exception
-     */
-    @ResponseBody
-    @PostMapping(value = "/httpTest")
-    public WebResult httpTest(@RequestParam("id") String id){
-
-        String requestPath = ApiConstants.getDetails;
-        ReqParamBody reqParamBody = new ReqParamBody();
-
-        WotMetaSchemaIdVO idVO = new WotMetaSchemaIdVO();
-        idVO.setId(id);
-
-        reqParamBody.setData(idVO);
-
-        String result =  HttpClientUtil.doPostJson("http://localhost:8080/v1/meta/schema/details", JSONUtil.toJsonStr(reqParamBody));
-        WebResult webResult = JsonUtils.jsonToBean(result, WebResult.class);
-        Resp<WotMetaSchemaSnapshot> webResult2 = JsonUtils.jsonToBean(result, new TypeReference<Resp<WotMetaSchemaSnapshot>>(){});
-        WotMetaSchemaSnapshot snapshot3 =webResult2.getData();
-        Object obj = webResult.getData();
-        String json1 = webResult.getData().toString();
-        logger.info(json1);
-
-        String json2 = JsonUtils.beanToJson(obj);
-        logger.info(json2);
-        WotMetaSchemaSnapshot schemaSnapshot2 = JSONUtil.toBean(json2, WotMetaSchemaSnapshot.class);
-        String json3= JSONUtil.toJsonStr(obj);
-        logger.info(json3);
-        WotMetaSchemaSnapshot schemaSnapshot3 = JsonUtils.jsonToBean(json2, WotMetaSchemaSnapshot.class);
-        WotMetaSchemaSnapshot schemaSnapshot = JsonUtils.beanToBean(obj, WotMetaSchemaSnapshot.class);
-        return WebResult.ok(schemaSnapshot);
     }
 }
