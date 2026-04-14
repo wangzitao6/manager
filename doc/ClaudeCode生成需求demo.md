@@ -8,13 +8,13 @@
 - 创建时间：[YYYY-MM-DD]
 - 作者：[你的名字]
 - 技术栈：
-  - Spring Boot
-  - MyBatis / MyBatis-Plus
-  - MySQL
-  - Swagger / OpenAPI
-  - Bean Validation
-  - Lombok（如项目使用）
-  - JUnit（如需要测试）
+    - Spring Boot
+    - MyBatis / MyBatis-Plus
+    - MySQL
+    - Swagger / OpenAPI
+    - Bean Validation
+    - Lombok（如项目使用）
+    - JUnit（如需要测试）
 
 ---
 
